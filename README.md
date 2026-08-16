@@ -219,7 +219,7 @@ This project is **already adapted for Cloudflare** — `src/lib/renderedFetch.ts
 - **Vercel**: `vercel --prod` from `app/` — uses Playwright locally (install Chrys: `npx playwright install --with-deps chromium`, give function ≥1024 MB, `maxDuration: 30s`).
 - **Docker**: `docker build -t fetchsave .` (add Dockerfile that runs `npm run build && npm run start` + `playwright install`).
 - **Any Node host**: `npm run build && npm run start`.
-
+ 
 ## Legal
 
 Only public content is fetched/downloaded. All media belongs to original creators. Not affiliated with TikTok/ByteDance or Pinterest, Inc. See `/terms` and `/privacy-policy` inside the app.
