@@ -1,0 +1,28 @@
+name = "fetchsave"
+compatibility_date = "2024-08-16"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+# For Pages, build output is set by next-on-pages; for Workers, use .open-next
+
+# ── Browser Rendering binding (Cloudflare managed Chromium) ──
+# This replaces local `chromium.launch()` — Workers cannot run a local binary.
+# See src/lib/renderedFetch.ts — it calls `puppeteer.launch(env.BROWSER)`
+[browser]
+binding = "BROWSER"
+
+# ── Optional: KV or D1 for caching search history (demo uses localStorage) ──
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# ── Limits (free tier) are documented in README.md ──
+
+[vars]
+NEXTJS_ENV = "production"
+
+# Increase CPU/memory via Smart Placement (optional, paid but helps browser)
+# [placement]
+# mode = "smart"
+
+# For local dev with wrangler:
+# npx wrangler pages dev .vercel/output/static --compatibility-date=2024-08-16
